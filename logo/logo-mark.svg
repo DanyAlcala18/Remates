@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="512" height="512">
+  <title>Remates iSTORE</title>
+  <defs>
+    <linearGradient id="rg" x1="8" y1="6" x2="58" y2="62" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5b8cff"/>
+      <stop offset=".5" stop-color="#a855f7"/>
+      <stop offset="1" stop-color="#ff4fa3"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".22"/>
+      <stop offset=".55" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <!-- la "i" se recorta de la etiqueta: el orificio es el punto y la barra es el cuerpo -->
+    <mask id="cut" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <rect width="64" height="64" fill="#fff"/>
+      <circle cx="32" cy="21.5" r="4.6" fill="#000"/>
+      <rect x="27.6" y="30.5" width="8.8" height="20" rx="4.4" fill="#000"/>
+    </mask>
+  </defs>
+  <g mask="url(#cut)" transform="rotate(-8 32 34)">
+    <path d="M32 6 L50 20 V51 a7 7 0 0 1 -7 7 H21 a7 7 0 0 1 -7 -7 V20 Z" fill="url(#rg)" stroke="url(#rg)" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M32 6 L50 20 V51 a7 7 0 0 1 -7 7 H21 a7 7 0 0 1 -7 -7 V20 Z" fill="url(#shine)"/>
+  </g>
+  <!-- destello de oferta -->
+  <path d="M53.5 6.5 l1.6 4.2 4.2 1.6 -4.2 1.6 -1.6 4.2 -1.6 -4.2 -4.2 -1.6 4.2 -1.6 Z" fill="#c6ff3d"/>
+</svg>

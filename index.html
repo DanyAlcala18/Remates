@@ -9,12 +9,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="logo/favicon.svg" />
+  <link rel="apple-touch-icon" href="logo/apple-touch-icon.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <!-- Pantalla de carga -->
   <div class="loader" id="loader" aria-hidden="true">
-    <div class="loader__mark">Remates <b>iSTORE</b></div>
+    <div class="loader__mark"><img src="logo/logo-mark.svg" alt="" width="64" height="64" /><span><small>Remates</small><b><em>i</em>STORE</b></span></div>
     <div class="loader__bar"><i></i></div>
   </div>
 
@@ -31,7 +33,7 @@
   <header class="header" id="header">
     <div class="header__pill">
       <a href="#inicio" class="logo" aria-label="Remates iSTORE, inicio">
-        <span class="logo__mark">i</span><span class="logo__txt">Remates <b>iSTORE</b></span>
+        <img class="logo__mark" src="logo/logo-mark.svg" alt="" width="40" height="40" /><span class="logo__txt"><small>Remates</small><b><em>i</em>STORE</b></span>
       </a>
       <nav class="nav" id="nav">
         <a href="#catalogo" data-filter="iphone">iPhone</a>
@@ -237,9 +239,7 @@
           <span class="pill">Opiniones</span>
           <h2 class="section__title">Lo que dicen <em class="grad">nuestros clientes.</em></h2>
           <p class="section__lead">Compras reales, entregas reales. Pasa el cursor sobre una opinión para detener el carrusel.</p>
-        </div>
-        <div class="rv-score spot reveal" id="rvScore" style="--d:.15s"></div>
-      </div>
+        </div>      </div>
       <div class="reviews"><div class="reviews__track" id="reviews"></div></div>
       <div class="reviews reviews--rev"><div class="reviews__track" id="reviews2"></div></div>
     </section>
@@ -287,7 +287,7 @@
 
     <div class="container footer__inner">
       <div class="footer__brand">
-        <a href="#inicio" class="logo"><span class="logo__mark">i</span><span class="logo__txt">Remates <b>iSTORE</b></span></a>
+        <a href="#inicio" class="logo"><img class="logo__mark" src="logo/logo-mark.svg" alt="" width="40" height="40" /><span class="logo__txt"><small>Remates</small><b><em>i</em>STORE</b></span></a>
         <p class="footer__text">iPhone, AirPods y accesorios originales a precio de remate. Tienda mexicana con atención personal por WhatsApp.</p>
         <ul class="footer__contact">
           <li><span data-ic="clock"></span><span id="storeHours"></span></li>

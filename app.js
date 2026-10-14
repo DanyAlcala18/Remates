@@ -309,7 +309,7 @@ function renderStatic() {
 }
 
 /* ---------------------------------------------------------
-   Opiniones: resumen calculado + dos carruseles
+   Opiniones: dos carruseles en sentidos opuestos
    --------------------------------------------------------- */
 function renderReviews() {
   const stars = (n) => Array.from({ length: 5 }, (_, k) => `<i class="${k < n ? "on" : ""}" style="--k:${k}">${ic("star")}</i>`).join("");
@@ -334,22 +334,6 @@ function renderReviews() {
   const b = [...REVIEWS].reverse().map((r, i) => card(r, i + 2)).join("");
   $("#reviews").innerHTML = a + a;
   $("#reviews2").innerHTML = b + b;
-
-  /* resumen calculado con las opiniones reales de REVIEWS */
-  const n = REVIEWS.length;
-  const avg = REVIEWS.reduce((s, r) => s + (r.stars ?? 5), 0) / n;
-  const pct = Math.round((REVIEWS.filter((r) => (r.stars ?? 5) >= 4).length / n) * 100);
-  const bars = [5, 4, 3, 2, 1].map((s) => {
-    const c = REVIEWS.filter((r) => (r.stars ?? 5) === s).length;
-    return `<div class="rv-bar"><span>${s}</span>${ic("star")}<i><b style="--w:${(c / n) * 100}%"></b></i><small>${c}</small></div>`;
-  }).join("");
-  $("#rvScore").innerHTML = `
-    <div class="rv-score__main">
-      <strong class="grad">${avg.toFixed(1)}</strong>
-      <div><div class="rv__stars rv__stars--lg">${stars(Math.round(avg))}</div><small>Basado en ${n} opiniones</small></div>
-    </div>
-    <div class="rv-score__bars">${bars}</div>
-    <div class="rv-score__foot"><b>${pct} %</b> de nuestros clientes nos recomienda</div>`;
 }
 
 /* ---------------------------------------------------------
