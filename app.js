@@ -220,6 +220,13 @@ function loadCart() {
   try {
     const raw = JSON.parse(localStorage.getItem(CONFIG.storageKey) || "[]");
     cart = raw.filter((l) => byId[l.id] && l.qty > 0);
+    /* si una opción guardada ya no existe (p. ej. "Outlet"), se usa la primera disponible */
+    cart.forEach((l) => {
+      const def = defaultSel(byId[l.id]);
+      (byId[l.id].options || []).forEach((o) => {
+        if (!o.values.some((v) => v.label === l.sel?.[o.key])) l.sel = { ...l.sel, [o.key]: def[o.key] };
+      });
+    });
   } catch { cart = []; }
 }
 function saveCart() {

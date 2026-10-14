@@ -32,9 +32,9 @@ const CATEGORIES = [
 
 /* ---------- iPhone: estado, capacidad y color ---------- */
 const NOTE =
-  "Equipo semi nuevo: revisado, funcional y en excelente estado estético. Outlet: equipo en perfecto funcionamiento que puede mostrar ligeras marcas de uso.";
+  "Equipo semi nuevo: revisado, funcional y en excelente estado estético.";
 
-const CONDITIONS = [{ label: "Semi nuevo" }, { label: "Outlet" }];
+const CONDITIONS = [{ label: "Semi nuevo" }];
 
 /* capacidades con su precio: caps([["64GB", 3990, 4790], ...]) */
 const caps = (list) => list.map(([label, price, old]) => ({ label, price, old }));

@@ -63,7 +63,6 @@ const POLICIES = [
       <ul>
         <li>Golpes, caídas, humedad, pantallas estrelladas o daños por mal uso.</li>
         <li>Equipos abiertos o reparados por terceros.</li>
-        <li>Desgaste estético normal en equipos Outlet.</li>
       </ul>
       <p>Para hacer válida la garantía, escríbenos por WhatsApp con tu número de folio.</p>`,
   },
@@ -109,7 +108,7 @@ const POLICIES = [
         <li>Los precios están en pesos mexicanos (MXN) e incluyen IVA. El costo de envío se cotiza aparte.</li>
         <li>Los precios y la disponibilidad pueden cambiar sin previo aviso; el precio válido es el confirmado por WhatsApp.</li>
         <li>Un pedido se considera confirmado cuando se recibe el pago completo.</li>
-        <li>Estado <b>Semi nuevo</b>: equipo revisado, funcional y en excelente estado estético. Estado <b>Outlet</b>: equipo en perfecto funcionamiento que puede mostrar ligeras marcas de uso.</li>
+        <li>Estado <b>Semi nuevo</b>: equipo revisado, funcional y en excelente estado estético.</li>
         <li>Remates iSTORE es una tienda independiente. iPhone, AirPods y MagSafe son marcas registradas de Apple Inc.</li>
       </ul>`,
   },
