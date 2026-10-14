@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Remates iSTORE · iPhone, AirPods y accesorios</title>
+  <meta name="description" content="iPhone 11, 11 Pro, 11 Pro Max, 12 mini, 12, 12 Pro y 12 Pro Max, AirPods, cargadores y cables a precio de remate. Pide por WhatsApp y paga por SPEI o tarjeta." />
+  <meta name="theme-color" content="#06060a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Pantalla de carga -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__mark">Remates <b>iSTORE</b></div>
+    <div class="loader__bar"><i></i></div>
+  </div>
+
+  <!-- Fondo: luces aurora + grano -->
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <!-- Barra de anuncios -->
+  <div class="topbar"><div class="topbar__track" id="topbarTrack"></div></div>
+
+  <!-- Encabezado flotante -->
+  <header class="header" id="header">
+    <div class="header__pill">
+      <a href="#inicio" class="logo" aria-label="Remates iSTORE, inicio">
+        <span class="logo__mark">i</span><span class="logo__txt">Remates <b>iSTORE</b></span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#catalogo" data-filter="iphone">iPhone</a>
+        <a href="#catalogo" data-filter="airpods">AirPods</a>
+        <a href="#catalogo" data-filter="cargadores">Cargadores</a>
+        <a href="#catalogo" data-filter="cables">Cables</a>
+        <a href="#como-comprar">Cómo comprar</a>
+      </nav>
+      <div class="header__actions">
+        <button class="icon-btn" id="searchOpen" aria-label="Buscar" data-ic="search"></button>
+        <button class="icon-btn icon-btn--cart" id="cartOpen" aria-label="Carrito">
+          <span data-ic="bag"></span><span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="icon-btn nav-toggle" id="navToggle" aria-label="Menú" data-ic="menu"></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <span class="pill reveal"><i class="dot"></i>Remate de temporada · Existencias limitadas</span>
+          <h1 class="hero__title" aria-label="iPhone originales a precio de remate">
+            <span class="line" aria-hidden="true"><span>iPhone originales</span></span>
+            <span class="line line--typed" aria-hidden="true"><span><em class="grad" id="typed">a precio de remate.</em><i class="caret"></i></span></span>
+          </h1>
+          <p class="hero__text reveal" style="--d:.5s">iPhone 11 y 12 en todas sus versiones: mini, Pro y Pro Max. Además AirPods, cargadores y cables. Equipos revisados uno por uno, con envío a todo México y atención personal por WhatsApp.</p>
+          <div class="hero__cta reveal" style="--d:.65s">
+            <a href="#catalogo" class="btn btn--grad btn--lg magnetic"><span>Ver catálogo</span><span data-ic="arrowRight"></span></a>
+            <a href="#" class="btn btn--glass btn--lg magnetic" data-wa-hello><span data-ic="whatsapp"></span><span>Escríbenos</span></a>
+          </div>
+          <div class="hero__stats reveal" style="--d:.8s">
+            <div><strong data-count="2500" data-suffix="+">0</strong><span>Clientes felices</span></div>
+            <div><strong data-count="48" data-suffix=" h">0</strong><span>Envío express</span></div>
+            <div><strong data-count="100" data-suffix=" %">0</strong><span>Equipos revisados</span></div>
+          </div>
+        </div>
+
+        <!-- Composición de productos con capas (parallax con el mouse) -->
+        <div class="hero__stage">
+          <div class="combo" id="combo">
+            <div class="combo__halo" aria-hidden="true"></div>
+            <div class="combo__disc" aria-hidden="true"></div>
+            <div class="combo__orbit" aria-hidden="true"><i></i></div>
+
+            <div class="layer combo__max" data-depth="0.35">
+              <img class="fly" style="--fd:.35s" src="img/hero/airpods-max.png" alt="AirPods Max" data-open-hero="airpods-max" />
+            </div>
+
+            <div class="layer combo__phone" data-depth="0.8">
+              <div class="fly" style="--fd:.15s">
+                <div class="combo__img" id="heroImg" role="button" tabindex="0" aria-label="Ver iPhone"></div>
+              </div>
+            </div>
+
+            <div class="layer combo__charger" data-depth="1.25">
+              <img class="fly" style="--fd:.55s" src="img/hero/cargador-20w.png" alt="Cargador Apple USB-C de 20 W" data-open-hero="cargador-20w" />
+            </div>
+
+            <div class="layer combo__mini" data-depth="1.05">
+              <button class="mini fly" style="--fd:.7s" data-open="airpods-pro-3">
+                <span class="mini__img"><img src="img/airpods-pro-3.png" alt="" /></span>
+                <span class="mini__txt"><small>AirPods Pro 3</small><b id="heroPods">$5,299</b></span>
+              </button>
+            </div>
+
+            <!-- etiquetas flotantes -->
+            <div class="layer tag tag--model" data-depth="0.6">
+              <div class="tag__in fly" style="--fd:.85s"><span class="tag__ic" data-ic="phone"></span><div><small>iPhone</small><b id="heroName">12 Pro Max</b></div></div>
+            </div>
+            <div class="layer tag tag--spec" data-depth="0.9">
+              <div class="tag__in fly" style="--fd:1s"><span class="tag__ic" data-ic="camera"></span><div><small id="heroSpecLabel">Cámara</small><b id="heroSpec">Triple 12 MP + LiDAR</b></div><span class="tag__dots" id="heroSwatches"></span></div>
+            </div>
+            <div class="layer tag tag--price" data-depth="1.15">
+              <div class="tag__in fly" style="--fd:1.15s"><div><small>Desde</small><b id="heroFrom">$7,490</b></div><span class="tag__go" data-ic="arrowRight"></span></div>
+            </div>
+
+            <div class="combo__dots" id="heroDots"></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero__word" aria-hidden="true">REMATES</div>
+    </section>
+
+    <!-- Franjas cruzadas -->
+    <div class="bands" aria-hidden="true">
+      <div class="band band--grad"><div class="band__track" id="marquee"></div></div>
+      <div class="band band--dark"><div class="band__track band__track--rev" id="marquee2"></div></div>
+    </div>
+
+    <!-- CATEGORÍAS (bento) -->
+    <section class="section" id="categorias">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="pill">Explora</span>
+          <h2 class="section__title">Todo lo que tu iPhone <em class="grad">necesita.</em></h2>
+        </div>
+        <div class="bento" id="cats"></div>
+      </div>
+    </section>
+
+    <!-- DESTACADOS -->
+    <section class="section" id="destacados">
+      <div class="container">
+        <div class="section__head section__head--row reveal">
+          <div>
+            <span class="pill">Lo más vendido</span>
+            <h2 class="section__title">Los favoritos <em class="grad">del remate.</em></h2>
+          </div>
+          <div class="rail-nav">
+            <button class="round-btn" data-rail="-1" aria-label="Anterior" data-ic="chevronLeft"></button>
+            <button class="round-btn" data-rail="1" aria-label="Siguiente" data-ic="chevronRight"></button>
+          </div>
+        </div>
+        <div class="rail" id="rail"></div>
+      </div>
+    </section>
+
+    <!-- CATÁLOGO -->
+    <section class="section" id="catalogo">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="pill">Catálogo</span>
+          <h2 class="section__title">Elige <em class="grad">el tuyo.</em></h2>
+        </div>
+        <div class="toolbar reveal">
+          <div class="tabs" id="tabs" role="tablist"><span class="tabs__pill" id="tabsPill"></span></div>
+          <div class="toolbar__right">
+            <label class="search-field">
+              <span data-ic="search"></span>
+              <input type="search" id="searchInput" placeholder="Buscar modelo…" autocomplete="off" />
+            </label>
+            <div class="select">
+              <select id="sortSelect" aria-label="Ordenar">
+                <option value="default">Recomendados</option>
+                <option value="asc">Precio: menor a mayor</option>
+                <option value="desc">Precio: mayor a menor</option>
+                <option value="save">Mayor descuento</option>
+              </select>
+              <span data-ic="chevronDown"></span>
+            </div>
+          </div>
+        </div>
+        <p class="results" id="results"></p>
+        <div class="grid" id="grid"></div>
+      </div>
+    </section>
+
+    <!-- CÓMO COMPRAR -->
+    <section class="section" id="como-comprar">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="pill">Cómo comprar</span>
+          <h2 class="section__title">Comprar es así de <em class="grad">simple.</em></h2>
+        </div>
+        <div class="steps">
+          <article class="step spot reveal" style="--d:0s">
+            <span class="step__n">01</span>
+            <span class="step__ic" data-ic="bag"></span>
+            <h3>Elige tus productos</h3>
+            <p>Selecciona modelo, capacidad y color. Agrega todo lo que quieras al carrito o usa "Comprar ahora".</p>
+          </article>
+          <article class="step spot reveal" style="--d:.12s">
+            <span class="step__n">02</span>
+            <span class="step__ic" data-ic="whatsapp"></span>
+            <h3>Envía tu pedido</h3>
+            <p>Tu pedido llega a nuestro WhatsApp con cada producto, cantidad y el total ya sumado.</p>
+          </article>
+          <article class="step spot reveal" style="--d:.24s">
+            <span class="step__n">03</span>
+            <span class="step__ic" data-ic="card"></span>
+            <h3>Paga y recibe</h3>
+            <p>Te compartimos los datos para pagar por transferencia SPEI o con tarjeta de débito o crédito. Enviamos el mismo día.</p>
+          </article>
+        </div>
+
+        <div class="pay reveal">
+          <div class="pay__item"><span data-ic="bank"></span><div><b>Transferencia SPEI</b><small>Desde la app de tu banco</small></div></div>
+          <div class="pay__item"><span data-ic="card"></span><div><b>Tarjeta de débito</b><small>Visa · Mastercard</small></div></div>
+          <div class="pay__item"><span data-ic="cardStack"></span><div><b>Tarjeta de crédito</b><small>Pregunta por meses</small></div></div>
+          <div class="pay__item"><span data-ic="truck"></span><div><b>Envío asegurado</b><small>A todo México con guía</small></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section class="section section--tight">
+      <div class="container perks">
+        <div class="perk spot reveal"><span data-ic="shield"></span><h3>Garantía</h3><p>Todos los equipos se revisan y se entregan con garantía de funcionamiento.</p></div>
+        <div class="perk spot reveal" style="--d:.1s"><span data-ic="battery"></span><h3>Batería revisada</h3><p>Te decimos la salud de batería exacta antes de que pagues.</p></div>
+        <div class="perk spot reveal" style="--d:.2s"><span data-ic="sparkle"></span><h3>Originales</h3><p>Productos 100 % originales. Nada de réplicas.</p></div>
+        <div class="perk spot reveal" style="--d:.3s"><span data-ic="chat"></span><h3>Atención directa</h3><p>Una persona real te atiende por WhatsApp de principio a fin.</p></div>
+      </div>
+    </section>
+
+    <!-- OPINIONES: resumen + dos carruseles en sentidos opuestos -->
+    <section class="section reviews-sec" id="opiniones">
+      <div class="container rv-head">
+        <div class="section__head reveal">
+          <span class="pill">Opiniones</span>
+          <h2 class="section__title">Lo que dicen <em class="grad">nuestros clientes.</em></h2>
+          <p class="section__lead">Compras reales, entregas reales. Pasa el cursor sobre una opinión para detener el carrusel.</p>
+        </div>
+        <div class="rv-score spot reveal" id="rvScore" style="--d:.15s"></div>
+      </div>
+      <div class="reviews"><div class="reviews__track" id="reviews"></div></div>
+      <div class="reviews reviews--rev"><div class="reviews__track" id="reviews2"></div></div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container faq-wrap">
+        <div class="section__head reveal">
+          <span class="pill">Preguntas frecuentes</span>
+          <h2 class="section__title">¿Tienes <em class="grad">dudas?</em></h2>
+          <p class="section__lead">Si no encuentras tu respuesta, escríbenos y te contestamos en minutos.</p>
+          <a href="#" class="btn btn--glass magnetic" data-wa-hello><span data-ic="whatsapp"></span><span>Preguntar por WhatsApp</span></a>
+        </div>
+        <div class="faq">
+          <details class="faq__item reveal"><summary><span>¿Cómo pago mi pedido?</span><i data-ic="plus"></i></summary><p>Al enviar tu pedido por WhatsApp te compartimos los datos para pagar por transferencia SPEI, o un enlace seguro para pagar con tarjeta de débito o crédito.</p></details>
+          <details class="faq__item reveal"><summary><span>¿Qué significa Semi nuevo y Outlet?</span><i data-ic="plus"></i></summary><p>Semi nuevo: equipo revisado, funcional y en excelente estado estético. Outlet: equipo en perfecto funcionamiento que puede mostrar ligeras marcas de uso, a un precio todavía más bajo.</p></details>
+          <details class="faq__item reveal"><summary><span>¿Hacen envíos a todo México?</span><i data-ic="plus"></i></summary><p>Sí. Enviamos con guía de rastreo y paquete asegurado. El costo y tiempo de envío se confirman por WhatsApp según tu código postal.</p></details>
+          <details class="faq__item reveal"><summary><span>¿Los equipos tienen garantía?</span><i data-ic="plus"></i></summary><p>Sí, todos los equipos incluyen garantía de funcionamiento. Te explicamos los detalles al confirmar tu compra.</p></details>
+          <details class="faq__item reveal"><summary><span>¿Puedo comprar varios productos?</span><i data-ic="plus"></i></summary><p>Claro. Agrega todo al carrito y al finalizar se envía un solo mensaje con todos los productos, las cantidades y el total.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA final -->
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-band__inner spot reveal">
+          <span class="pill">Listo para estrenar</span>
+          <h2>Tu próximo iPhone<br /><em class="grad">te está esperando.</em></h2>
+          <p>Arma tu pedido y lo confirmamos contigo por WhatsApp.</p>
+          <a href="#catalogo" class="btn btn--grad btn--lg magnetic"><span>Comprar ahora</span><span data-ic="arrowRight"></span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <!-- franja de confianza -->
+    <div class="container trust">
+      <div class="trust__item"><span data-ic="shield"></span><div><b>Garantía incluida</b><small id="trustWarranty">En todos los equipos</small></div></div>
+      <div class="trust__item"><span data-ic="truck"></span><div><b>Envío asegurado</b><small>Con guía de rastreo</small></div></div>
+      <div class="trust__item"><span data-ic="refresh"></span><div><b>Cambios</b><small id="trustReturns">Sin complicaciones</small></div></div>
+      <div class="trust__item"><span data-ic="lock"></span><div><b>Pago seguro</b><small>Métodos locales en MXN</small></div></div>
+    </div>
+
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#inicio" class="logo"><span class="logo__mark">i</span><span class="logo__txt">Remates <b>iSTORE</b></span></a>
+        <p class="footer__text">iPhone, AirPods y accesorios originales a precio de remate. Tienda mexicana con atención personal por WhatsApp.</p>
+        <ul class="footer__contact">
+          <li><span data-ic="clock"></span><span id="storeHours"></span></li>
+          <li><span data-ic="pin"></span><span id="storeCoverage"></span></li>
+          <li><span data-ic="whatsapp"></span><a href="#" data-wa-hello>Escríbenos por WhatsApp</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Tienda</h4>
+        <a href="#catalogo" data-filter="iphone">iPhone</a>
+        <a href="#catalogo" data-filter="airpods">AirPods</a>
+        <a href="#catalogo" data-filter="cargadores">Cargadores</a>
+        <a href="#catalogo" data-filter="cables">Cables</a>
+        <a href="#destacados">Lo más vendido</a>
+      </div>
+      <div class="footer__col">
+        <h4>Ayuda</h4>
+        <a href="#como-comprar">Cómo comprar</a>
+        <a href="#faq">Preguntas frecuentes</a>
+        <a href="#opiniones">Opiniones</a>
+        <a href="#" data-wa-hello>Soporte por WhatsApp</a>
+      </div>
+      <div class="footer__col" id="footerPolicies">
+        <h4>Políticas</h4>
+      </div>
+    </div>
+
+    <!-- pagos locales -->
+    <div class="container paybar">
+      <div class="paybar__text"><b>Pagos 100 % locales</b><small>Moneda nacional (MXN) · Bancos mexicanos · Sin cargos ocultos</small></div>
+      <div class="paybar__logos" aria-label="Métodos de pago aceptados">
+        <span class="paylogo paylogo--spei" title="Transferencia SPEI"><b>SPEI</b><small>Transferencia</small></span>
+        <span class="paylogo" title="Visa"><svg viewBox="0 0 60 20" aria-hidden="true"><text x="2" y="16" font-family="Arial Black, Arial, sans-serif" font-size="17" font-style="italic" font-weight="900" fill="#fff" letter-spacing="1">VISA</text></svg></span>
+        <span class="paylogo" title="Mastercard"><svg viewBox="0 0 40 24" aria-hidden="true"><circle cx="15" cy="12" r="10" fill="#eb001b"/><circle cx="25" cy="12" r="10" fill="#f79e1b" fill-opacity=".9"/><path d="M20 4.2a10 10 0 0 1 0 15.6a10 10 0 0 1 0-15.6Z" fill="#ff5f00"/></svg></span>
+        <span class="paylogo paylogo--mxn" title="Pesos mexicanos"><b>$ MXN</b><small>Pesos</small></span>
+        <button class="paylogo paylogo--more" data-policy="pagos">Ver detalles</button>
+      </div>
+    </div>
+
+    <div class="footer__word" aria-hidden="true">iSTORE</div>
+    <div class="container footer__bottom">
+      <span>© <span id="year"></span> Remates iSTORE. Todos los derechos reservados. Hecho en México.</span>
+      <span>iPhone y AirPods son marcas de Apple Inc. Tienda independiente.</span>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flotante -->
+  <a href="#" class="wa-float" data-wa-hello aria-label="WhatsApp"><span data-ic="whatsapp"></span></a>
+
+  <!-- Buscador -->
+  <div class="search-overlay" id="searchOverlay" aria-hidden="true">
+    <div class="search-overlay__box">
+      <label class="search-overlay__field">
+        <span data-ic="search"></span>
+        <input type="search" id="quickSearch" placeholder="¿Qué estás buscando?" autocomplete="off" />
+        <button class="icon-btn" data-close="search" aria-label="Cerrar" data-ic="x"></button>
+      </label>
+      <div class="search-overlay__results" id="quickResults"></div>
+    </div>
+  </div>
+
+  <!-- Modal de producto -->
+  <div class="modal" id="productModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close="product"></div>
+    <div class="modal__panel modal__panel--product" role="dialog" aria-modal="true" id="productPanel"></div>
+  </div>
+
+  <!-- Carrito -->
+  <div class="drawer" id="cartDrawer" aria-hidden="true">
+    <div class="drawer__backdrop" data-close="cart"></div>
+    <aside class="drawer__panel" role="dialog" aria-modal="true" aria-label="Carrito">
+      <div class="drawer__head">
+        <h3>Tu carrito <span id="cartHeadCount"></span></h3>
+        <button class="icon-btn" data-close="cart" aria-label="Cerrar" data-ic="x"></button>
+      </div>
+      <div class="drawer__body" id="cartBody"></div>
+      <div class="drawer__foot" id="cartFoot"></div>
+    </aside>
+  </div>
+
+  <!-- Checkout -->
+  <div class="modal" id="checkoutModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close="checkout"></div>
+    <div class="modal__panel modal__panel--checkout" role="dialog" aria-modal="true" aria-label="Finalizar pedido">
+      <button class="icon-btn modal__close" data-close="checkout" aria-label="Cerrar" data-ic="x"></button>
+      <div class="co">
+        <form class="co__form" id="coForm" novalidate>
+          <span class="pill">Finalizar pedido</span>
+          <h3 class="co__title">Confirma por WhatsApp</h3>
+          <p class="co__lead">Completa tus datos. Al enviar se abrirá WhatsApp con tu pedido listo para mandarnos.</p>
+
+          <div class="field"><label for="coName">Nombre completo</label><input id="coName" name="name" required placeholder="Ej. Ana López" autocomplete="name" /></div>
+          <div class="field-row">
+            <div class="field"><label for="coCity">Ciudad y estado</label><input id="coCity" name="city" required placeholder="Ej. Guadalajara, Jal." /></div>
+            <div class="field"><label for="coZip">Código postal</label><input id="coZip" name="zip" inputmode="numeric" maxlength="5" placeholder="Opcional" /></div>
+          </div>
+
+          <fieldset class="paysel">
+            <legend>Método de pago</legend>
+            <label class="paysel__opt"><input type="radio" name="pay" value="Transferencia SPEI" checked /><span class="paysel__box"><span data-ic="bank"></span><b>Transferencia SPEI</b><small>Te enviamos la CLABE</small></span></label>
+            <label class="paysel__opt"><input type="radio" name="pay" value="Tarjeta de débito / crédito" /><span class="paysel__box"><span data-ic="card"></span><b>Tarjeta</b><small>Débito o crédito</small></span></label>
+          </fieldset>
+
+          <div class="field"><label for="coNotes">Notas (opcional)</label><textarea id="coNotes" name="notes" rows="2" placeholder="Horario de entrega, dudas, etc."></textarea></div>
+
+          <button type="submit" class="btn btn--wa btn--lg btn--block"><span data-ic="whatsapp"></span><span>Enviar pedido · <b id="coBtnTotal">$0</b></span></button>
+          <p class="co__secure"><span data-ic="lock"></span>No cobramos nada aquí. El pago se acuerda directamente contigo por WhatsApp.</p>
+        </form>
+        <aside class="co__summary">
+          <h4>Resumen</h4>
+          <div class="co__lines" id="coLines"></div>
+          <div class="co__totals" id="coTotals"></div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- Políticas -->
+  <div class="modal" id="policyModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close="policy"></div>
+    <div class="modal__panel modal__panel--policy" role="dialog" aria-modal="true" aria-label="Políticas de la tienda">
+      <button class="icon-btn modal__close" data-close="policy" aria-label="Cerrar" data-ic="x"></button>
+      <div class="pol">
+        <nav class="pol__nav" id="polNav"></nav>
+        <article class="pol__body" id="polBody"></article>
+      </div>
+    </div>
+  </div>
+
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <script src="products.js"></script>
+  <script src="policies.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
